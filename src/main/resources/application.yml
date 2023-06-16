@@ -1,0 +1,23 @@
+quarkus:
+  swagger-ui:
+    theme: material
+    always-include: true
+
+  live-reload:
+    instrumentation: true
+
+  http:
+    port: ${PORT:8080}
+    cors:
+      origins: http://localhost:4200
+      ~: true
+  smallrye-openapi:
+    path: /swagger
+  log:
+    level: ALL
+
+imagekit:
+  url: ${IMAGEKIT_URL}
+  private: ${IMAGEKIT_PRIVATE}
+  public: ${IMAGEKIT_PUBLIC}
+  api: ${IMAGEKIT_API_PRIVATE}
