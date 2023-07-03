@@ -7,7 +7,7 @@ quarkus:
     instrumentation: true
 
   http:
-    port: ${PORT:8080}
+    port: ${PORT:9090}
     cors:
       origins: http://localhost:4200
       ~: true
