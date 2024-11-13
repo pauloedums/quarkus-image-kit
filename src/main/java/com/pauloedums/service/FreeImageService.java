@@ -21,13 +21,14 @@ public class FreeImageService {
     @Inject
     ImageKitController imageKitController;
 
-    public List<ImageKitResultResponse> uploadImages(MultipartFormDataInput input) {
+    public List<ImageKitResultResponse> uploadImages(MultipartFormDataInput input, String folder) {
         imageKitController.initImageKitConfig();
 
         List<ImageKitResultResponse> results = new ArrayList<>();
         input.getParts().forEach(image -> {
             try {
                 FileCreateRequest fileCreateRequest = new FileCreateRequest(image.getBody().readAllBytes(), image.getFileName());
+                fileCreateRequest.setFolder(folder);
                 Result result = ImageKit.getInstance().upload(fileCreateRequest);
                 ImageKitResultResponse imageKitResultResponse = ImageKitResultResponse.builder()
                         .name(result.getName())
