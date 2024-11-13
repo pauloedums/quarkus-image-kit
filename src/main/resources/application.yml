@@ -9,7 +9,7 @@ quarkus:
   http:
     port: ${PORT:9090}
     cors:
-      origins: http://localhost:4200
+      origins: http://localhost:3000
       ~: true
   smallrye-openapi:
     path: /swagger
