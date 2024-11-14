@@ -23,10 +23,10 @@ public class FreeImageController {
     FreeImageService freeImageService;
 
     @POST
-    @Path("/upload/{folder}")
+    @Path("/upload/")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response uploadImage(@MultipartForm @NotNull MultipartFormDataInput input, @PathParam("folder") String folder){
+    public Response uploadImage(@MultipartForm @NotNull MultipartFormDataInput input, @QueryParam("folder") String folder){
         List<ImageKitResultResponse> results = freeImageService.uploadImages(input, folder);
         return Response.ok(results).build();
     }
