@@ -5,9 +5,10 @@ quarkus:
 
   live-reload:
     instrumentation: true
-
+  application:
+    name: free-image-upload
   http:
-    port: ${PORT:9090}
+    port: ${PORT:6010}
     cors:
       origins: http://localhost:3000
       ~: true
@@ -15,7 +16,11 @@ quarkus:
     path: /swagger
   log:
     level: ALL
-
+  container-image:
+    build: true
+    group: ${quarkus.application.name}
+    name: upload
+    tag: latest
 imagekit:
   url: ${IMAGEKIT_URL}
   private: ${IMAGEKIT_PRIVATE}

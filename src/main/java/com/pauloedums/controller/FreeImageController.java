@@ -15,7 +15,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-@Produces(MediaType.APPLICATION_JSON)
 @Path("")
 public class FreeImageController {
 
